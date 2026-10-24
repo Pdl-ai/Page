@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pdl.ai</title>
+    <link rel="icon" type="image/gif" href="./images/icones/dancing-pdl.gif" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta content="#ef4444" name="theme-color" />
+    <meta name="title" content="Pdl.ai - Discord Bot" />
+    <meta
+      name="description"
+      content="Pdl.ai brings natural AI conversation, autonomous voice music playback, image recognition, and automated anti-scam protection to Discord."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="#" />
+    <meta property="og:title" content="Pdl.ai - Discord Bot" />
+    <meta
+      property="og:description"
+      content="Pdl.ai brings natural AI conversation, autonomous voice music playback, image recognition, and automated anti-scam protection to Discord."
+    />
+    <meta property="og:image" content="./images/icones/dancing-pdl.gif" />
+    <meta property="og:color" content="#ef4444" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Pdl.ai - Discord Bot" />
+    <meta
+      property="twitter:description"
+      content="Pdl.ai brings natural AI conversation, autonomous voice music playback, image recognition, and automated anti-scam protection to Discord."
+    />
+    <meta property="twitter:image" content="./images/icones/dancing-pdl.gif" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body class="subtle-noise selection:bg-red-500 selection:text-white">
+    <!-- Preloader -->
+    <div id="loader">
+      <div class="relative flex items-center justify-center">
+        <div class="w-16 h-16 border-2 border-red-500/20 border-t-red-500 rounded-full animate-spin"></div>
+        <img
+          src="images/icones/dancing-pdl.gif"
+          alt="Pdl.ai"
+          class="w-10 h-10 rounded-full absolute"
+        />
+      </div>
+    </div>
+
+    <!-- Fluid Floating Header -->
+    <header id="main-header" class="header-wrapper">
+      <div class="header-shell">
+        <div class="flex items-center justify-between">
+          <!-- Brand -->
+          <a href="#hero" class="flex items-center gap-3 group">
+            <div class="relative">
+              <img
+                src="images/icones/dancing-pdl.gif"
+                alt="Pdl.ai"
+                class="w-10 h-10 rounded-xl object-cover"
+              />
+              <span class="w-3 h-3 rounded-full bg-[#23a55a] ring-2 ring-[#0c0d11] absolute -bottom-0.5 -right-0.5"></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-xl font-extrabold tracking-tight text-white">Pdl.ai</span>
+              <span class="app-tag">
+                <svg class="w-2.5 h-2.5" viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M7.4 11.17 4 8.62l1-1.17 2.26 1.7 4.14-4.15 1.14 1.14-5.14 5.03Z" />
+                </svg>
+                APP
+              </span>
+            </div>
+          </a>
+
+          <!-- Fluid Sliding Navigation Track -->
+          <nav id="nav-track" class="hidden md:flex nav-links-track">
+            <div id="nav-indicator" class="nav-pill-indicator"></div>
+            <a href="#hero" class="nav-item active">Overview</a>
+            <a href="#features" class="nav-item">Capabilities</a>
+            <a href="#commands" class="nav-item">Commands</a>
+            <a href="#testimonials" class="nav-item">Reviews</a>
+            <a href="#community" class="nav-item">Server</a>
+          </nav>
+
+          <!-- CTA -->
+          <div class="hidden md:flex items-center gap-3">
+            <a
+              href="https://discord.com/oauth2/authorize?client_id=1294035883309142026"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="bot-invite-link btn-red-500 px-5 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2"
+            >
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.27 5.33C17.94 4.71 16.5 4.26 15 4a.09.09 0 0 0-.07.03c-.18.33-.39.76-.53 1.09a16.09 16.09 0 0 0-4.8 0c-.14-.34-.35-.76-.54-1.09-.01-.02-.04-.03-.07-.03-1.5.26-2.93.71-4.27 1.33-.01 0-.02.01-.03.02-2.72 4.07-3.47 8.03-3.1 11.95 0 .02.01.04.03.05 1.8 1.32 3.53 2.12 5.24 2.65.03.01.06 0 .07-.02.4-.55.76-1.13 1.07-1.74.02-.04 0-.08-.04-.09-.57-.22-1.11-.48-1.64-.78-.04-.02-.04-.08-.01-.11.11-.08.22-.17.33-.25.02-.02.05-.02.07-.01 3.44 1.57 7.15 1.57 10.55 0 .02-.01.05-.01.07.01.11.09.22.17.33.26.04.03.04.09-.01.11-.52.31-1.07.56-1.64.78-.04.01-.05.06-.04.09.32.61.68 1.19 1.07 1.74.03.01.06.02.09.01 1.72-.53 3.45-1.33 5.25-2.65.02-.01.03-.03.03-.05.44-4.53-.73-8.46-3.1-11.95-.01-.01-.02-.02-.04-.02zM8.52 14.91c-1.03 0-1.89-.95-1.89-2.12s.84-2.12 1.89-2.12c1.06 0 1.9.96 1.89 2.12 0 1.17-.84 2.12-1.89 2.12zm6.97 0c-1.03 0-1.89-.95-1.89-2.12s.84-2.12 1.89-2.12c1.06 0 1.9.96 1.89 2.12 0 1.17-.83 2.12-1.89 2.12z"/>
+              </svg>
+              <span>Add to Discord</span>
+            </a>
+          </div>
+
+          <!-- Mobile Toggle -->
+          <div class="md:hidden">
+            <button id="mobile-menu-btn" type="button" class="text-white p-2 rounded-xl bg-white/5 border border-white/10">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path class="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden pt-3">
+          <div class="p-2 space-y-1 bg-[#0e0f13] border border-white/10 rounded-xl">
+            <a href="#hero" class="block px-3 py-2 rounded-lg text-sm font-medium text-white/80 hover:text-white hover:bg-white/5">Overview</a>
+            <a href="#features" class="block px-3 py-2 rounded-lg text-sm font-medium text-white/80 hover:text-white hover:bg-white/5">Capabilities</a>
+            <a href="#commands" class="block px-3 py-2 rounded-lg text-sm font-medium text-white/80 hover:text-white hover:bg-white/5">Commands</a>
+            <a href="#testimonials" class="block px-3 py-2 rounded-lg text-sm font-medium text-white/80 hover:text-white hover:bg-white/5">Reviews</a>
+            <a href="#community" class="block px-3 py-2 rounded-lg text-sm font-medium text-white/80 hover:text-white hover:bg-white/5">Server</a>
+            <div class="pt-2">
+              <a
+                href="https://discord.com/oauth2/authorize?client_id=1294035883309142026"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bot-invite-link block text-center btn-red-500 py-2.5 rounded-xl text-sm font-bold"
+              >
+                Add to Discord
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="min-h-screen relative overflow-hidden hero-ambient flex items-center pt-32 pb-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          <!-- Left Column -->
+          <div class="lg:col-span-6 space-y-8 text-center lg:text-left" id="hero-copy">
+            <h1 class="text-5xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.05]">
+              Your server,
+              <span class="block text-red-500">
+                alive and intelligent.
+              </span>
+            </h1>
+
+            <p class="text-lg sm:text-xl text-white/65 leading-relaxed max-w-xl mx-auto lg:mx-0">
+              Natural AI conversation with memory, autonomous voice music control, real-time web knowledge, and instant scam protection in one Discord bot.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a
+                href="https://discord.com/oauth2/authorize?client_id=1294035883309142026"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bot-invite-link btn-red-500 px-8 py-4 rounded-2xl font-bold inline-flex items-center justify-center gap-3 text-base"
+              >
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19.27 5.33C17.94 4.71 16.5 4.26 15 4a.09.09 0 0 0-.07.03c-.18.33-.39.76-.53 1.09a16.09 16.09 0 0 0-4.8 0c-.14-.34-.35-.76-.54-1.09-.01-.02-.04-.03-.07-.03-1.5.26-2.93.71-4.27 1.33-.01 0-.02.01-.03.02-2.72 4.07-3.47 8.03-3.1 11.95 0 .02.01.04.03.05 1.8 1.32 3.53 2.12 5.24 2.65.03.01.06 0 .07-.02.4-.55.76-1.13 1.07-1.74.02-.04 0-.08-.04-.09-.57-.22-1.11-.48-1.64-.78-.04-.02-.04-.08-.01-.11.11-.08.22-.17.33-.25.02-.02.05-.02.07-.01 3.44 1.57 7.15 1.57 10.55 0 .02-.01.05-.01.07.01.11.09.22.17.33.26.04.03.04.09-.01.11-.52.31-1.07.56-1.64.78-.04.01-.05.06-.04.09.32.61.68 1.19 1.07 1.74.03.01.06.02.09.01 1.72-.53 3.45-1.33 5.25-2.65.02-.01.03-.03.03-.05.44-4.53-.73-8.46-3.1-11.95-.01-.01-.02-.02-.04-.02zM8.52 14.91c-1.03 0-1.89-.95-1.89-2.12s.84-2.12 1.89-2.12c1.06 0 1.9.96 1.89 2.12 0 1.17-.84 2.12-1.89 2.12zm6.97 0c-1.03 0-1.89-.95-1.89-2.12s.84-2.12 1.89-2.12c1.06 0 1.9.96 1.89 2.12 0 1.17-.83 2.12-1.89 2.12z"/>
+                </svg>
+                <span>Invite Pdl.ai</span>
+              </a>
+
+              <a
+                href="#commands"
+                class="bg-[#121318] hover:bg-[#1a1c23] border border-white/10 px-8 py-4 rounded-2xl font-semibold text-white/90 inline-flex items-center justify-center gap-2.5 transition-all text-base"
+              >
+                <span class="font-mono-code text-red-500 font-bold">/</span>
+                <span>Explore Commands</span>
+              </a>
+            </div>
+
+            <div class="pt-2 flex items-center justify-center lg:justify-start gap-3 text-sm text-white/50">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#23a55a]"></span>
+              <span id="hero-live-status">Active right now in Pdl.ai Support</span>
+            </div>
+          </div>
+
+          <!-- Right Column: Layered Discord Stage -->
+          <div class="lg:col-span-6 relative flex justify-center items-center min-h-[460px]" id="hero-visual">
+            <div class="absolute w-80 h-80 bg-red-500/20 rounded-full blur-[90px] pointer-events-none"></div>
+
+            <!-- Main Mascot Frame -->
+            <div class="relative z-10 rounded-3xl p-2 bg-[#121318] border border-white/10 shadow-2xl">
+              <img
+                src="images/icones/running-pdl.gif"
+                alt="Pdl.ai"
+                class="rounded-2xl w-72 sm:w-80 md:w-96 object-cover block"
+              />
+            </div>
+
+            <!-- Floating Layer 1: Live Discord Chat Bubble -->
+            <div class="floating-layer animate-float-1 rounded-2xl p-4 w-72 sm:w-80 absolute -top-4 left-0 sm:-left-6 z-20">
+              <div class="flex items-start gap-3">
+                <img
+                  src="images/icones/dancing-pdl.gif"
+                  alt="Pdl.ai"
+                  class="w-9 h-9 rounded-full shrink-0 object-cover"
+                />
+                <div class="min-w-0">
+                  <div class="flex items-center gap-1.5">
+                    <span class="font-bold text-xs text-white">Pdl.ai</span>
+                    <span class="app-tag">APP</span>
+                    <span class="text-[10px] text-white/40 ml-1">Just now</span>
+                  </div>
+                  <p class="text-xs text-white/80 mt-1 leading-relaxed">
+                    <span class="mention-pill">@tomiitomii</span> I queued up Daft Punk in <span class="channel-pill">#Calling</span> and found the guide for your setup!
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Layer 2: Interactive Voice Channel Player Bar -->
+            <div class="floating-layer animate-float-2 rounded-2xl p-4 w-72 sm:w-80 absolute -bottom-5 right-0 sm:-right-4 z-20">
+              <div class="flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3 min-w-0">
+                  <div class="w-10 h-10 rounded-xl bg-red-500/15 border border-red-500/30 flex items-center justify-center gap-0.5 shrink-0" id="hero-eq">
+                    <span class="eq-bar"></span>
+                    <span class="eq-bar"></span>
+                    <span class="eq-bar"></span>
+                    <span class="eq-bar"></span>
+                    <span class="eq-bar"></span>
+                  </div>
+                  <div class="min-w-0">
+                    <div class="text-[11px] font-semibold text-[#23a55a]">
+                      Voice Connected
+                    </div>
+                    <div id="hero-track-title" class="text-xs font-bold text-white truncate">
+                      Daft Punk • Instant Crush
+                    </div>
+                  </div>
+                </div>
+                <button
+                  id="hero-audio-toggle"
+                  type="button"
+                  class="w-9 h-9 rounded-xl bg-red-500 hover:bg-red-600 text-white flex items-center justify-center transition-colors shrink-0"
+                  title="Toggle Playback Preview"
+                >
+                  <svg id="hero-audio-icon" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ASYMMETRIC BENTO CAPABILITIES SECTION -->
+    <section id="features" class="py-24 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-14">
+          <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tight">
+            Built to feel native inside Discord.
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <!-- Bento 1: Natural AI + Contextual Memory -->
+          <div class="spotlight-card lg:col-span-7 p-8 sm:p-10 flex flex-col justify-between gap-8">
+            <div class="space-y-2 max-w-xl">
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
+                Natural AI that remembers your server
+              </h3>
+              <p class="text-white/60 text-sm sm:text-base">
+                Mention <span class="mention-pill">@Pdl.ai</span>, reply to its messages, or type Pdl in chat.
+              </p>
+            </div>
+
+            <div class="bg-[#08090c] border border-white/10 rounded-2xl p-5 space-y-4">
+              <div class="flex items-start gap-3">
+                <img src="./images/profils/nexusprime85.webp" alt="Nexus Prime" class="w-8 h-8 rounded-full mt-0.5 object-cover" />
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-xs font-bold text-white">Nexus Prime</span>
+                    <span class="text-[10px] text-white/35">18:42</span>
+                  </div>
+                  <p class="text-xs sm:text-sm text-white/80 mt-0.5">
+                    Hey Pdl, my GPU fans spike to 100 percent with a black screen when gaming, what should I check first?
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3 pl-3 border-l-2 border-red-500">
+                <img src="./images/icones/dancing-pdl.gif" alt="Pdl.ai" class="w-8 h-8 rounded-full mt-0.5 object-cover" />
+                <div class="space-y-1">
+                  <div class="flex items-center gap-1.5">
+                    <span class="text-xs font-bold text-red-500">Pdl.ai</span>
+                    <span class="app-tag">APP</span>
+                  </div>
+                  <p class="text-xs sm:text-sm text-white/85 leading-relaxed">
+                    Check your PCIe power cables at both the GPU and PSU ends first, then inspect Windows Reliability Monitor for LiveKernelEvent 141.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento 2: Autonomous Voice DJ -->
+          <div class="spotlight-card lg:col-span-5 p-8 sm:p-10 flex flex-col justify-between gap-8">
+            <div class="space-y-2">
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
+                Autonomous Voice DJ
+              </h3>
+              <p class="text-white/60 text-sm sm:text-base">
+                Control playback in plain chat or with <span class="font-mono-code text-red-500 text-sm">/music</span> commands.
+              </p>
+            </div>
+
+            <div class="bg-[#08090c] border border-white/10 rounded-2xl p-5 space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-mono-code uppercase tracking-wider text-red-500">Now Playing</span>
+                <span id="bento-loop-badge" class="text-[11px] font-mono-code text-white/50">Loop: Queue</span>
+              </div>
+
+              <div class="flex items-center gap-3.5">
+                <div class="w-12 h-12 rounded-xl bg-red-500 flex items-center justify-center shrink-0">
+                  <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                  </svg>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div id="bento-song-title" class="font-bold text-white text-sm truncate">
+                    Harder, Better, Faster, Stronger
+                  </div>
+                  <div id="bento-song-artist" class="text-xs text-white/55 truncate">
+                    Daft Punk • Discovery
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between pt-2 border-t border-white/10">
+                <span class="text-xs text-white/40 font-mono-code">Requested by @daymon</span>
+                <button
+                  id="bento-next-track"
+                  type="button"
+                  class="px-3 py-1.5 rounded-lg bg-red-500 hover:bg-red-600 text-xs font-semibold text-white transition-colors"
+                >
+                  Skip Track
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento 3: Anti-Scam Shield -->
+          <div class="spotlight-card lg:col-span-5 p-8 sm:p-10 flex flex-col justify-between gap-8">
+            <div class="space-y-2">
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
+                Instant Anti-Scam Shield
+              </h3>
+              <p class="text-white/60 text-sm sm:text-base">
+                Phishing links and scam images are neutralized automatically.
+              </p>
+            </div>
+
+            <div class="bg-[#08090c] border border-red-500/25 rounded-2xl p-5 space-y-3">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+                  <span class="text-xs font-bold text-red-500">Threat Neutralized</span>
+                </div>
+                <span class="text-[11px] font-mono-code text-white/40">Auto-Moderation</span>
+              </div>
+              <div class="text-xs text-white/75 space-y-1 font-mono-code bg-black/50 p-3 rounded-xl border border-white/5">
+                <div class="text-white/40 line-through">https://dlscord-gift-nitro.com/claim</div>
+                <div class="text-emerald-400 pt-1">Message Deleted + Member Timed Out</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento 4: Live Web Search and Vision -->
+          <div class="spotlight-card lg:col-span-7 p-8 sm:p-10 flex flex-col justify-between gap-8">
+            <div class="space-y-2 max-w-xl">
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
+                Live Web Search and Image Vision
+              </h3>
+              <p class="text-white/60 text-sm sm:text-base">
+                Reads screenshots of error logs directly and searches the live web for real-time answers.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="bg-[#08090c] border border-white/10 rounded-2xl p-4 space-y-1">
+                <div class="text-xs font-bold text-red-500">Live Web Grounding</div>
+                <p class="text-xs text-white/60 leading-relaxed">
+                  Fetches current hardware releases, patch notes, and live news in real time.
+                </p>
+              </div>
+              <div class="bg-[#08090c] border border-white/10 rounded-2xl p-4 space-y-1">
+                <div class="text-xs font-bold text-red-500">Screenshot Diagnostics</div>
+                <p class="text-xs text-white/60 leading-relaxed">
+                  Extracts text from crash screens and system monitors to guide members step by step.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE COMMAND STUDIO SECTION -->
+    <section id="commands" class="py-24 relative border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tight">
+            Command Studio
+          </h2>
+
+          <!-- Category Switcher Pills -->
+          <div class="inline-flex p-1.5 rounded-2xl bg-[#0e0f14] border border-white/10 self-start">
+            <button
+              type="button"
+              data-wb-cat="music"
+              class="workbench-cat-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-white/75 hover:text-white"
+            >
+              Music and Voice
+            </button>
+            <button
+              type="button"
+              data-wb-cat="moderation"
+              class="workbench-cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-white/75 hover:text-white"
+            >
+              Moderation
+            </button>
+            <button
+              type="button"
+              data-wb-cat="utility"
+              class="workbench-cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-white/75 hover:text-white"
+            >
+              Utility and Config
+            </button>
+          </div>
+        </div>
+
+        <!-- Split Workbench -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <!-- Left: Tactile Command Chips -->
+          <div class="lg:col-span-5 grid grid-cols-2 gap-3" id="wb-chips-container">
+            <!-- Populated by script.js -->
+          </div>
+
+          <!-- Right: Live Discord Preview Stage -->
+          <div class="lg:col-span-7 bg-[#0c0d12] border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
+            <div class="bg-[#111319] px-6 py-4 border-b border-white/10 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="text-white/30 font-bold text-lg">#</span>
+                <span class="font-bold text-sm text-white">bot-commands</span>
+              </div>
+              <button
+                id="wb-copy-btn"
+                type="button"
+                class="px-3.5 py-1.5 rounded-lg bg-red-500 hover:bg-red-600 text-xs font-mono-code font-semibold text-white transition-colors"
+              >
+                Copy /music play
+              </button>
+            </div>
+
+            <div class="px-6 py-4 bg-[#15171e] border-b border-white/5 flex flex-wrap items-center justify-between gap-3">
+              <div class="flex flex-wrap items-center gap-2" id="wb-syntax-bar"></div>
+              <span id="wb-permission-pill" class="text-[11px] font-mono-code px-2.5 py-1 rounded-md bg-red-500/15 text-red-500 border border-red-500/30">
+                Public
+              </span>
+            </div>
+
+            <div class="p-6 sm:p-8 space-y-4 min-h-[250px] flex flex-col justify-center" id="wb-preview-stage"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY TESTIMONIALS SECTION -->
+    <section id="testimonials" class="py-24 relative border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-14">
+          <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tight">
+            Trusted by the community.
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Card 1 -->
+          <div class="spotlight-card p-8 flex flex-col justify-between gap-6">
+            <div class="space-y-5">
+              <div class="flex items-center gap-3.5">
+                <img
+                  class="w-12 h-12 rounded-full object-cover"
+                  src="./images/profils/tomiitomii301.webp"
+                  alt="tomiitomii"
+                />
+                <div>
+                  <h4 class="font-bold text-white text-base">tomiitomii</h4>
+                  <span class="text-xs text-red-500 font-medium">Community Moderator</span>
+                </div>
+              </div>
+              <p class="text-white/75 text-base leading-relaxed">
+                "Honestly, this bot is incredible. Between the music tracks playing at the right moment and the smart replies that either make everyone laugh or help out, it completely changed the vibe of our server."
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="spotlight-card p-8 flex flex-col justify-between gap-6">
+            <div class="space-y-5">
+              <div class="flex items-center gap-3.5">
+                <img
+                  class="w-12 h-12 rounded-full object-cover"
+                  src="./images/profils/nexusprime85.webp"
+                  alt="Nexus Prime"
+                />
+                <div>
+                  <h4 class="font-bold text-white text-base">Nexus Prime</h4>
+                  <span class="text-xs text-white/55 font-medium">Server Member</span>
+                </div>
+              </div>
+              <p class="text-white/75 text-base leading-relaxed">
+                "It delivers every time. Music, instant answers, everything is smooth and works right out of the box. Huge respect to the team, it is a wonder."
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="spotlight-card p-8 flex flex-col justify-between gap-6">
+            <div class="space-y-5">
+              <div class="flex items-center gap-3.5">
+                <img
+                  class="w-12 h-12 rounded-full object-cover"
+                  src="./images/profils/daymon.png"
+                  alt="Daymon"
+                />
+                <div>
+                  <h4 class="font-bold text-white text-base">Daymon</h4>
+                  <span class="text-xs text-red-500 font-medium">Former Server Founder</span>
+                </div>
+              </div>
+              <p class="text-white/75 text-base leading-relaxed">
+                "I was skeptical at first, but wow! This bot exceeded my expectations. I wish I had it back when I still ran my own community server."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE DISCORD ECOSYSTEM SECTION -->
+    <section id="community" class="py-24 relative border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="spotlight-card p-8 sm:p-12 lg:p-14">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <!-- Left: Live Server Overview from Widget JSON API -->
+            <div class="lg:col-span-7 space-y-8">
+              <div class="space-y-3">
+                <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#23a55a]/15 border border-[#23a55a]/30 text-[#23a55a] text-xs font-semibold">
+                  <span class="w-2 h-2 rounded-full bg-[#23a55a]"></span>
+                  <span id="widget-online-badge">Live Community Server</span>
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+                  Join <span id="widget-server-name" class="text-red-500">Pdl.ai Support</span>
+                </h2>
+              </div>
+
+              <!-- Live Voice Channels and Online Members -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="bg-[#08090c] border border-white/10 rounded-2xl p-5 space-y-3">
+                  <div class="text-xs font-bold uppercase tracking-wider text-white/45">
+                    Voice Channels
+                  </div>
+                  <div id="widget-channels" class="space-y-2"></div>
+                </div>
+
+                <div class="bg-[#08090c] border border-white/10 rounded-2xl p-5 space-y-3">
+                  <div class="text-xs font-bold uppercase tracking-wider text-white/45 mb-3">
+                    Online Members
+                  </div>
+                  <div id="widget-members" class="flex flex-wrap gap-2"></div>
+                </div>
+              </div>
+
+              <div>
+                <a
+                  id="widget-invite-btn"
+                  href="https://discord.com/invite/nrxdjXcb"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-red-500 px-8 py-4 rounded-2xl font-bold inline-flex items-center gap-3 text-sm sm:text-base"
+                >
+                  <span>Join Pdl.ai Support</span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right: Official Discord Premade Widget Iframe -->
+            <div class="lg:col-span-5 flex justify-center">
+              <div class="p-2.5 rounded-3xl bg-[#08090c] border border-white/10 shadow-2xl">
+                <iframe
+                  id="discord-widget-frame"
+                  src="https://discord.com/widget?id=1460035966931570886"
+                  width="350"
+                  height="500"
+                  allowtransparency="true"
+                  frameborder="0"
+                  title="Pdl.ai Support Discord Widget"
+                  class="rounded-2xl max-w-full"
+                  sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 border-t border-white/10 bg-[#040406]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-3">
+            <img
+              class="h-9 w-9 rounded-xl object-cover"
+              src="./images/icones/dancing-pdl.gif"
+              alt="Pdl.ai"
+            />
+            <span class="text-lg font-extrabold text-white">Pdl.ai</span>
+            <span class="app-tag">APP</span>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-7 text-sm font-medium text-white/65">
+            <a href="#hero" class="hover:text-white transition-colors">Overview</a>
+            <a href="#features" class="hover:text-white transition-colors">Capabilities</a>
+            <a href="#commands" class="hover:text-white transition-colors">Commands</a>
+            <a
+              id="footer-support-link"
+              href="https://discord.com/invite/nrxdjXcb"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-red-500 hover:text-red-400 transition-colors"
+            >
+              Support Server
+            </a>
+            <button
+              id="scroll-top-btn"
+              type="button"
+              class="text-white/60 hover:text-white transition-colors inline-flex items-center gap-1"
+            >
+              <span>Top</span>
+              <span>↑</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
