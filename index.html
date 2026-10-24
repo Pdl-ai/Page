@@ -60,7 +60,7 @@
                 alt="Pdl.ai"
                 class="w-10 h-10 rounded-xl object-cover"
               />
-              <span class="w-3 h-3 rounded-full bg-[#23a55a] ring-2 ring-[#0c0d11] absolute -bottom-0.5 -right-0.5"></span>
+              <span class="w-3 h-3 rounded-full bg-emerald-500 ring-2 ring-[#0c0d11] absolute -bottom-0.5 -right-0.5"></span>
             </div>
             <div class="flex items-center gap-2">
               <span class="text-xl font-extrabold tracking-tight text-white">Pdl.ai</span>
@@ -132,7 +132,7 @@
     </header>
 
     <!-- HERO SECTION -->
-    <section id="hero" class="min-h-screen relative overflow-hidden hero-ambient flex items-center pt-32 pb-20">
+    <section id="hero" class="min-h-screen relative overflow-hidden flex items-center pt-32 pb-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           <!-- Left Column -->
@@ -169,17 +169,10 @@
                 <span>Explore Commands</span>
               </a>
             </div>
-
-            <div class="pt-2 flex items-center justify-center lg:justify-start gap-3 text-sm text-white/50">
-              <span class="w-2.5 h-2.5 rounded-full bg-[#23a55a]"></span>
-              <span id="hero-live-status">Active right now in Pdl.ai Support</span>
-            </div>
           </div>
 
           <!-- Right Column: Layered Discord Stage -->
           <div class="lg:col-span-6 relative flex justify-center items-center min-h-[460px]" id="hero-visual">
-            <div class="absolute w-80 h-80 bg-red-500/20 rounded-full blur-[90px] pointer-events-none"></div>
-
             <!-- Main Mascot Frame -->
             <div class="relative z-10 rounded-3xl p-2 bg-[#121318] border border-white/10 shadow-2xl">
               <img
@@ -189,22 +182,39 @@
               />
             </div>
 
-            <!-- Floating Layer 1: Live Discord Chat Bubble -->
-            <div class="floating-layer animate-float-1 rounded-2xl p-4 w-72 sm:w-80 absolute -top-4 left-0 sm:-left-6 z-20">
+            <!-- Floating Layer 1: Authentic Discord Reply Message -->
+            <div class="animate-float-1 rounded-2xl p-3.5 w-80 sm:w-[340px] absolute -top-5 left-0 sm:-left-8 z-20 bg-[#313338] border border-white/10 shadow-2xl text-left">
+              <!-- Discord Reply Spine -->
+              <div class="discord-reply-spine flex items-center gap-1.5 text-[11px] text-[#b5bac1] mb-1 truncate">
+                <img
+                  src="./images/profils/tomiitomii301.webp"
+                  alt="tomiitomii"
+                  class="w-3.5 h-3.5 rounded-full object-cover shrink-0"
+                />
+                <span class="font-semibold text-white/90 shrink-0">@tomiitomii</span>
+                <span class="truncate text-[#949ba4]">Pdl play Instant Crush in voice please</span>
+              </div>
+
+              <!-- Bot Message Body -->
               <div class="flex items-start gap-3">
                 <img
                   src="images/icones/dancing-pdl.gif"
                   alt="Pdl.ai"
-                  class="w-9 h-9 rounded-full shrink-0 object-cover"
+                  class="w-9 h-9 rounded-full shrink-0 object-cover mt-0.5"
                 />
-                <div class="min-w-0">
+                <div class="min-w-0 flex-1">
                   <div class="flex items-center gap-1.5">
-                    <span class="font-bold text-xs text-white">Pdl.ai</span>
-                    <span class="app-tag">APP</span>
-                    <span class="text-[10px] text-white/40 ml-1">Just now</span>
+                    <span class="font-semibold text-[13px] text-white hover:underline cursor-pointer">Pdl.ai</span>
+                    <span class="app-tag">
+                      <svg class="w-2.5 h-2.5" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M7.4 11.17 4 8.62l1-1.17 2.26 1.7 4.14-4.15 1.14 1.14-5.14 5.03Z" />
+                      </svg>
+                      APP
+                    </span>
+                    <span class="text-[11px] text-[#949ba4] ml-0.5">Today at 19:56</span>
                   </div>
-                  <p class="text-xs text-white/80 mt-1 leading-relaxed">
-                    <span class="mention-pill">@tomiitomii</span> I queued up Daft Punk in <span class="channel-pill">#Calling</span> and found the guide for your setup!
+                  <p class="text-[13px] text-[#dbdee1] mt-0.5 leading-snug">
+                    Joining your voice channel now! I just queued up <span class="font-semibold text-white">Instant Crush</span> by Daft Punk.
                   </p>
                 </div>
               </div>
@@ -214,7 +224,7 @@
             <div class="floating-layer animate-float-2 rounded-2xl p-4 w-72 sm:w-80 absolute -bottom-5 right-0 sm:-right-4 z-20">
               <div class="flex items-center justify-between gap-3">
                 <div class="flex items-center gap-3 min-w-0">
-                  <div class="w-10 h-10 rounded-xl bg-red-500/15 border border-red-500/30 flex items-center justify-center gap-0.5 shrink-0" id="hero-eq">
+                  <div class="w-10 h-10 rounded-xl bg-emerald-500/15 flex items-center justify-center gap-0.5 shrink-0" id="hero-eq">
                     <span class="eq-bar"></span>
                     <span class="eq-bar"></span>
                     <span class="eq-bar"></span>
@@ -222,7 +232,7 @@
                     <span class="eq-bar"></span>
                   </div>
                   <div class="min-w-0">
-                    <div class="text-[11px] font-semibold text-[#23a55a]">
+                    <div class="text-[11px] font-semibold text-emerald-500">
                       Voice Connected
                     </div>
                     <div id="hero-track-title" class="text-xs font-bold text-white truncate">
@@ -233,7 +243,7 @@
                 <button
                   id="hero-audio-toggle"
                   type="button"
-                  class="w-9 h-9 rounded-xl bg-red-500 hover:bg-red-600 text-white flex items-center justify-center transition-colors shrink-0"
+                  class="w-9 h-9 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white flex items-center justify-center transition-colors shrink-0"
                   title="Toggle Playback Preview"
                 >
                   <svg id="hero-audio-icon" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
@@ -259,39 +269,54 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
           <!-- Bento 1: Natural AI + Contextual Memory -->
           <div class="spotlight-card lg:col-span-7 p-8 sm:p-10 flex flex-col justify-between gap-8">
-            <div class="space-y-2 max-w-xl">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-indigo-500 flex items-center justify-center shrink-0 text-white">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+                </svg>
+              </div>
               <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
                 Natural AI that remembers your server
               </h3>
-              <p class="text-white/60 text-sm sm:text-base">
-                Mention <span class="mention-pill">@Pdl.ai</span>, reply to its messages, or type Pdl in chat.
-              </p>
             </div>
 
-            <div class="bg-[#08090c] border border-white/10 rounded-2xl p-5 space-y-4">
+            <div class="bg-[#313338] border border-white/10 rounded-2xl p-5 space-y-4">
               <div class="flex items-start gap-3">
-                <img src="./images/profils/nexusprime85.webp" alt="Nexus Prime" class="w-8 h-8 rounded-full mt-0.5 object-cover" />
+                <img src="./images/profils/nexusprime85.webp" alt="Nexus Prime" class="w-9 h-9 rounded-full mt-0.5 object-cover shrink-0" />
                 <div>
                   <div class="flex items-center gap-2">
-                    <span class="text-xs font-bold text-white">Nexus Prime</span>
-                    <span class="text-[10px] text-white/35">18:42</span>
+                    <span class="text-sm font-semibold text-white">Nexus Prime</span>
+                    <span class="text-xs text-[#949ba4]">Today at 18:42</span>
                   </div>
-                  <p class="text-xs sm:text-sm text-white/80 mt-0.5">
+                  <p class="text-sm text-[#dbdee1] mt-0.5 leading-snug">
                     Hey Pdl, my GPU fans spike to 100 percent with a black screen when gaming, what should I check first?
                   </p>
                 </div>
               </div>
 
-              <div class="flex items-start gap-3 pl-3 border-l-2 border-red-500">
-                <img src="./images/icones/dancing-pdl.gif" alt="Pdl.ai" class="w-8 h-8 rounded-full mt-0.5 object-cover" />
-                <div class="space-y-1">
-                  <div class="flex items-center gap-1.5">
-                    <span class="text-xs font-bold text-red-500">Pdl.ai</span>
-                    <span class="app-tag">APP</span>
+              <div class="space-y-1">
+                <div class="discord-reply-spine flex items-center gap-1.5 text-xs text-[#b5bac1] truncate">
+                  <img src="./images/profils/nexusprime85.webp" alt="Nexus Prime" class="w-4 h-4 rounded-full object-cover shrink-0" />
+                  <span class="font-semibold text-white/90 shrink-0">@Nexus Prime</span>
+                  <span class="truncate text-[#949ba4]">Hey Pdl, my GPU fans spike to 100 percent with a black screen when gaming...</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <img src="./images/icones/dancing-pdl.gif" alt="Pdl.ai" class="w-9 h-9 rounded-full mt-0.5 object-cover shrink-0" />
+                  <div>
+                    <div class="flex items-center gap-1.5">
+                      <span class="text-sm font-semibold text-white">Pdl.ai</span>
+                      <span class="app-tag">
+                        <svg class="w-2.5 h-2.5" viewBox="0 0 16 16" fill="currentColor">
+                          <path d="M7.4 11.17 4 8.62l1-1.17 2.26 1.7 4.14-4.15 1.14 1.14-5.14 5.03Z" />
+                        </svg>
+                        APP
+                      </span>
+                      <span class="text-xs text-[#949ba4] ml-0.5">Today at 18:42</span>
+                    </div>
+                    <p class="text-sm text-[#dbdee1] mt-0.5 leading-relaxed">
+                      Check your PCIe power cables at both the GPU and PSU ends first, then inspect Windows Reliability Monitor for LiveKernelEvent 141.
+                    </p>
                   </div>
-                  <p class="text-xs sm:text-sm text-white/85 leading-relaxed">
-                    Check your PCIe power cables at both the GPU and PSU ends first, then inspect Windows Reliability Monitor for LiveKernelEvent 141.
-                  </p>
                 </div>
               </div>
             </div>
@@ -299,25 +324,27 @@
 
           <!-- Bento 2: Autonomous Voice DJ -->
           <div class="spotlight-card lg:col-span-5 p-8 sm:p-10 flex flex-col justify-between gap-8">
-            <div class="space-y-2">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-purple-500 flex items-center justify-center shrink-0 text-white">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                </svg>
+              </div>
               <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
                 Autonomous Voice DJ
               </h3>
-              <p class="text-white/60 text-sm sm:text-base">
-                Control playback in plain chat or with <span class="font-mono-code text-red-500 text-sm">/music</span> commands.
-              </p>
             </div>
 
             <div class="bg-[#08090c] border border-white/10 rounded-2xl p-5 space-y-4">
               <div class="flex items-center justify-between">
-                <span class="text-[11px] font-mono-code uppercase tracking-wider text-red-500">Now Playing</span>
+                <span class="text-[11px] font-mono-code uppercase tracking-wider text-purple-500">Now Playing</span>
                 <span id="bento-loop-badge" class="text-[11px] font-mono-code text-white/50">Loop: Queue</span>
               </div>
 
               <div class="flex items-center gap-3.5">
-                <div class="w-12 h-12 rounded-xl bg-red-500 flex items-center justify-center shrink-0">
-                  <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                <div class="w-12 h-12 rounded-xl bg-purple-500 flex items-center justify-center shrink-0 text-white">
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
                   </svg>
                 </div>
                 <div class="min-w-0 flex-1">
@@ -335,7 +362,7 @@
                 <button
                   id="bento-next-track"
                   type="button"
-                  class="px-3 py-1.5 rounded-lg bg-red-500 hover:bg-red-600 text-xs font-semibold text-white transition-colors"
+                  class="px-3 py-1.5 rounded-lg bg-purple-500 hover:bg-purple-600 text-xs font-semibold text-white transition-colors"
                 >
                   Skip Track
                 </button>
@@ -345,50 +372,60 @@
 
           <!-- Bento 3: Anti-Scam Shield -->
           <div class="spotlight-card lg:col-span-5 p-8 sm:p-10 flex flex-col justify-between gap-8">
-            <div class="space-y-2">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-red-500 flex items-center justify-center shrink-0 text-white">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                </svg>
+              </div>
               <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
                 Instant Anti-Scam Shield
               </h3>
-              <p class="text-white/60 text-sm sm:text-base">
-                Phishing links and scam images are neutralized automatically.
-              </p>
             </div>
 
-            <div class="bg-[#08090c] border border-red-500/25 rounded-2xl p-5 space-y-3">
+            <div class="bg-[#08090c] border border-white/10 rounded-2xl p-5 space-y-3">
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                  <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+                  <span class="w-2 h-2 rounded-full bg-red-500"></span>
                   <span class="text-xs font-bold text-red-500">Threat Neutralized</span>
                 </div>
                 <span class="text-[11px] font-mono-code text-white/40">Auto-Moderation</span>
               </div>
               <div class="text-xs text-white/75 space-y-1 font-mono-code bg-black/50 p-3 rounded-xl border border-white/5">
                 <div class="text-white/40 line-through">https://dlscord-gift-nitro.com/claim</div>
-                <div class="text-emerald-400 pt-1">Message Deleted + Member Timed Out</div>
+                <div class="text-emerald-500 pt-1">Message Deleted + Member Timed Out</div>
               </div>
             </div>
           </div>
 
           <!-- Bento 4: Live Web Search and Vision -->
           <div class="spotlight-card lg:col-span-7 p-8 sm:p-10 flex flex-col justify-between gap-8">
-            <div class="space-y-2 max-w-xl">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-amber-500 flex items-center justify-center shrink-0 text-white">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                </svg>
+              </div>
               <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
                 Live Web Search and Image Vision
               </h3>
-              <p class="text-white/60 text-sm sm:text-base">
-                Reads screenshots of error logs directly and searches the live web for real-time answers.
-              </p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div class="bg-[#08090c] border border-white/10 rounded-2xl p-4 space-y-1">
-                <div class="text-xs font-bold text-red-500">Live Web Grounding</div>
+              <div class="bg-[#08090c] border border-white/10 rounded-2xl p-4 space-y-2">
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+                  <span class="text-xs font-bold text-white">Live Web Grounding</span>
+                </div>
                 <p class="text-xs text-white/60 leading-relaxed">
                   Fetches current hardware releases, patch notes, and live news in real time.
                 </p>
               </div>
-              <div class="bg-[#08090c] border border-white/10 rounded-2xl p-4 space-y-1">
-                <div class="text-xs font-bold text-red-500">Screenshot Diagnostics</div>
+              <div class="bg-[#08090c] border border-white/10 rounded-2xl p-4 space-y-2">
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-sky-500"></span>
+                  <span class="text-xs font-bold text-white">Screenshot Diagnostics</span>
+                </div>
                 <p class="text-xs text-white/60 leading-relaxed">
                   Extracts text from crash screens and system monitors to guide members step by step.
                 </p>
@@ -399,12 +436,12 @@
       </div>
     </section>
 
-    <!-- INTERACTIVE COMMAND STUDIO SECTION -->
+    <!-- REALISTIC DISCORD COMMANDS SECTION -->
     <section id="commands" class="py-24 relative border-t border-white/5">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
           <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tight">
-            Command Studio
+            Slash Commands
           </h2>
 
           <!-- Category Switcher Pills -->
@@ -412,58 +449,72 @@
             <button
               type="button"
               data-wb-cat="music"
-              class="workbench-cat-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-white/75 hover:text-white"
+              class="workbench-cat-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-white/75 hover:text-white flex items-center gap-2"
             >
-              Music and Voice
+              <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+              <span>Music and Voice</span>
             </button>
             <button
               type="button"
               data-wb-cat="moderation"
-              class="workbench-cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-white/75 hover:text-white"
+              class="workbench-cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-white/75 hover:text-white flex items-center gap-2"
             >
-              Moderation
+              <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+              <span>Moderation</span>
             </button>
             <button
               type="button"
               data-wb-cat="utility"
-              class="workbench-cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-white/75 hover:text-white"
+              class="workbench-cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-white/75 hover:text-white flex items-center gap-2"
             >
-              Utility and Config
+              <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+              <span>Utility</span>
             </button>
           </div>
         </div>
 
-        <!-- Split Workbench -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <!-- Left: Tactile Command Chips -->
-          <div class="lg:col-span-5 grid grid-cols-2 gap-3" id="wb-chips-container">
+        <!-- Split Discord Slash Picker + Realistic Discord Channel View -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <!-- Left: Slash Command List -->
+          <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-2.5" id="wb-chips-container">
             <!-- Populated by script.js -->
           </div>
 
-          <!-- Right: Live Discord Preview Stage -->
-          <div class="lg:col-span-7 bg-[#0c0d12] border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
-            <div class="bg-[#111319] px-6 py-4 border-b border-white/10 flex items-center justify-between">
+          <!-- Right: Realistic Discord Chat Channel Window -->
+          <div class="lg:col-span-7 discord-chat-window shadow-2xl">
+            <!-- Discord Channel Bar -->
+            <div class="discord-chat-header px-5 py-3.5 flex items-center justify-between">
               <div class="flex items-center gap-2">
-                <span class="text-white/30 font-bold text-lg">#</span>
-                <span class="font-bold text-sm text-white">bot-commands</span>
+                <svg class="w-5 h-5 text-[#80848e]" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M5.88657 21C5.57547 21 5.3399 20.7189 5.39427 20.4126L6.00001 17H2.59511C2.28449 17 2.04905 16.7198 2.10259 16.4138L2.27759 15.4138C2.31946 15.1746 2.52722 15 2.77011 15H6.35001L7.41001 9H4.00511C3.69449 9 3.45905 8.71977 3.51259 8.41381L3.68759 7.41381C3.72946 7.17456 3.93722 7 4.18011 7H7.76001L8.39677 3.41262C8.43914 3.17391 8.64664 3 8.88907 3H9.87344C10.1845 3 10.4201 3.28107 10.3657 3.58738L9.76001 7H15.76L16.3968 3.41262C16.4391 3.17391 16.6466 3 16.8891 3H17.8734C18.1845 3 18.4201 3.28107 18.3657 3.58738L17.76 7H21.1649C21.4755 7 21.711 7.28023 21.6574 7.58619L21.4824 8.58619C21.4406 8.82544 21.2328 9 20.9899 9H17.41L16.35 15H19.7549C20.0655 15 20.301 15.2802 20.2474 15.5862L20.0724 16.5862C20.0306 16.8254 19.8228 17 19.5799 17H16L15.3632 20.5874C15.3209 20.8261 15.1134 21 14.8709 21H13.8866C13.5755 21 13.3399 20.7189 13.3943 20.4126L14 17H8.00001L7.36325 20.5874C7.32088 20.8261 7.11337 21 6.87094 21H5.88657ZM9.41045 9L8.35045 15H14.3504L15.4104 9H9.41045Z"/>
+                </svg>
+                <span class="font-bold text-sm text-white">commands-guide</span>
               </div>
               <button
                 id="wb-copy-btn"
                 type="button"
-                class="px-3.5 py-1.5 rounded-lg bg-red-500 hover:bg-red-600 text-xs font-mono-code font-semibold text-white transition-colors"
+                class="px-3 py-1 rounded-md bg-red-500 hover:bg-red-600 text-xs font-mono-code font-semibold text-white transition-colors"
               >
                 Copy /music play
               </button>
             </div>
 
-            <div class="px-6 py-4 bg-[#15171e] border-b border-white/5 flex flex-wrap items-center justify-between gap-3">
-              <div class="flex flex-wrap items-center gap-2" id="wb-syntax-bar"></div>
-              <span id="wb-permission-pill" class="text-[11px] font-mono-code px-2.5 py-1 rounded-md bg-red-500/15 text-red-500 border border-red-500/30">
-                Public
-              </span>
+            <!-- Realistic Discord Message Area -->
+            <div class="p-6 min-h-[210px] flex flex-col justify-center" id="wb-preview-stage">
+              <!-- Populated by script.js -->
             </div>
 
-            <div class="p-6 sm:p-8 space-y-4 min-h-[250px] flex flex-col justify-center" id="wb-preview-stage"></div>
+            <!-- Realistic Discord Input Bar -->
+            <div class="px-4 pb-4">
+              <div class="discord-chat-input px-4 py-2.5 flex items-center gap-3">
+                <div class="w-6 h-6 rounded-full bg-[#b5bac1] text-[#313338] flex items-center justify-center font-bold text-sm shrink-0">
+                  +
+                </div>
+                <div class="flex flex-wrap items-center gap-1.5 text-sm font-mono-code text-[#dbdee1]" id="wb-syntax-bar">
+                  <!-- Populated by script.js -->
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -550,8 +601,7 @@
             <!-- Left: Live Server Overview from Widget JSON API -->
             <div class="lg:col-span-7 space-y-8">
               <div class="space-y-3">
-                <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#23a55a]/15 border border-[#23a55a]/30 text-[#23a55a] text-xs font-semibold">
-                  <span class="w-2 h-2 rounded-full bg-[#23a55a]"></span>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500 text-white text-xs font-bold">
                   <span id="widget-online-badge">Live Community Server</span>
                 </div>
                 <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">

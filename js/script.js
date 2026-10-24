@@ -2,207 +2,140 @@ const GUILD_ID = "1460035966931570886";
 const WIDGET_JSON_URL = "https://discord.com/api/guilds/1460035966931570886/widget.json";
 const BOT_CLIENT_ID = "1294035883309142026";
 
+const CATEGORY_ICONS = {
+  music: `<span class="w-7 h-7 rounded-lg bg-purple-500 text-white flex items-center justify-center shrink-0"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg></span>`,
+  moderation: `<span class="w-7 h-7 rounded-lg bg-blue-500 text-white flex items-center justify-center shrink-0"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></span>`,
+  utility: `<span class="w-7 h-7 rounded-lg bg-amber-500 text-white flex items-center justify-center shrink-0"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></span>`,
+};
+
 /**
- * Public commands for the Interactive Command Studio with simulated Discord previews.
+ * Public commands where Pdl.ai explains what each command does in a realistic Discord chat message.
  */
 const WORKBENCH_COMMANDS = {
   music: [
     {
       name: "/music play",
       args: ["query", "source"],
-      permission: "Public",
-      previewTitle: "Now Playing",
-      previewLines: [
-        "<strong>Track:</strong> <span class='text-red-500 font-semibold'>Instant Crush</span>",
-        "<strong>Artist:</strong> <span class='font-mono-code text-xs bg-black/40 px-1.5 py-0.5 rounded'>Daft Punk</span>",
-        "<strong>Channel:</strong> <span class='channel-pill'>#Calling 96kbps</span> • <strong>Status:</strong> Playing immediately",
-      ],
+      botReply:
+        "This command plays a song or a full playlist in your voice channel. Pass a track name or link in <span class='discord-inline-code'>query</span> and optionally pick YouTube or SoundCloud in <span class='discord-inline-code'>source</span>.",
     },
     {
       name: "/music queue",
       args: [],
-      permission: "Public",
-      previewTitle: "Music Queue",
-      previewLines: [
-        "<strong>Now Playing:</strong> Harder, Better, Faster, Stronger <span class='font-mono-code text-xs text-white/50'>03:45</span>",
-        "<strong>01.</strong> Instant Crush <span class='font-mono-code text-xs text-white/50'>05:37</span> • <span class='mention-pill'>@tomiitomii</span>",
-        "<strong>02.</strong> Veridis Quo <span class='font-mono-code text-xs text-white/50'>05:44</span> • <span class='mention-pill'>@daymon</span>",
-      ],
+      botReply:
+        "Displays the track currently playing along with the full list of upcoming songs waiting in your server queue.",
     },
     {
       name: "/music skip",
       args: [],
-      permission: "Public",
-      previewTitle: "Track Skipped",
-      previewLines: [
-        "<strong>Skipped:</strong> Harder, Better, Faster, Stronger",
-        "<strong>Now Playing:</strong> <span class='text-red-500 font-semibold'>Instant Crush</span>",
-      ],
+      botReply:
+        "Skips the song that is currently playing and immediately starts the next track in the queue.",
     },
     {
       name: "/music nowplaying",
       args: [],
-      permission: "Public",
-      previewTitle: "Now Playing",
-      previewLines: [
-        "<strong>Track:</strong> Veridis Quo • <strong>Duration:</strong> <span class='font-mono-code text-xs'>05:44</span>",
-        "<strong>Status:</strong> Playing • <strong>Volume:</strong> <span class='font-mono-code text-xs'>100%</span> • <strong>Loop:</strong> <span class='font-mono-code text-xs'>queue</span>",
-      ],
+      botReply:
+        "Shows details about the active track including its title, artist, duration, current volume, and loop mode.",
     },
     {
       name: "/music loop",
       args: ["mode"],
-      permission: "Public",
-      previewTitle: "Loop Mode Updated",
-      previewLines: [
-        "<strong>Mode:</strong> <span class='font-mono-code text-xs text-red-500'>queue</span>",
-        "<strong>Details:</strong> Whole queue loops continuously when finished.",
-      ],
+      botReply:
+        "Changes the repeat behavior for your voice session. Set <span class='discord-inline-code'>mode</span> to repeat the current track, loop the entire queue, or turn looping off.",
     },
     {
       name: "/music volume",
       args: ["level"],
-      permission: "Public",
-      previewTitle: "Audio Volume Updated",
-      previewLines: [
-        "<strong>New Volume:</strong> Volume has been set to <strong>120%</strong>.",
-      ],
+      botReply:
+        "Adjusts the playback volume of the bot in your voice channel. Choose a <span class='discord-inline-code'>level</span> between 0 and 150 percent.",
     },
     {
       name: "/music pause",
       args: [],
-      permission: "Public",
-      previewTitle: "Playback Paused",
-      previewLines: [
-        "Audio stream paused. Run <span class='font-mono-code text-xs text-red-500'>/music resume</span> to continue listening.",
-      ],
+      botReply:
+        "Pauses the current track right where it is so you can resume it later with <span class='discord-inline-code'>/music resume</span>.",
     },
     {
       name: "/vocal-connect",
       args: [],
-      permission: "Public",
-      previewTitle: "Connected to Voice",
-      previewLines: [
-        "Joined <span class='channel-pill'>#Calling 96kbps</span> and ready for audio commands.",
-      ],
+      botReply:
+        "Summons me directly into the voice channel you are currently connected to so I am ready for audio playback.",
     },
   ],
   moderation: [
     {
       name: "/clear",
       args: ["amount", "target"],
-      permission: "Manage Messages",
-      previewTitle: "Channel Messages Purged",
-      previewLines: [
-        "<strong>Deleted:</strong> <span class='font-mono-code text-xs text-red-500'>25 messages</span> in <span class='channel-pill'>#general</span>",
-        "<strong>Moderator:</strong> <span class='mention-pill'>@tomiitomii</span>",
-      ],
+      botReply:
+        "Deletes up to 100 recent messages at once in the current channel. You can set <span class='discord-inline-code'>amount</span> and optionally filter by a specific <span class='discord-inline-code'>target</span> member.",
     },
     {
       name: "/ban",
       args: ["target", "reason", "delete_messages"],
-      permission: "Ban Members",
-      previewTitle: "Member Banned",
-      previewLines: [
-        "<strong>Target:</strong> SpamAccount#0001",
-        "<strong>Reason:</strong> Repeated phishing links in public channels",
-      ],
+      botReply:
+        "Permanently bans a member from the server. You can provide a <span class='discord-inline-code'>reason</span> for the audit log and choose whether to purge their recent messages.",
     },
     {
       name: "/unban",
       args: ["user_id", "reason"],
-      permission: "Ban Members",
-      previewTitle: "Member Unbanned",
-      previewLines: [
-        "<strong>Restored Access:</strong> Ban revoked after appeal review.",
-      ],
+      botReply:
+        "Revokes an active server ban using the user Discord ID in <span class='discord-inline-code'>user_id</span> so they can rejoin the server.",
     },
     {
       name: "/mute",
       args: ["target", "duration", "reason"],
-      permission: "Moderate Members",
-      previewTitle: "Member Timed Out",
-      previewLines: [
-        "<strong>Duration:</strong> <span class='font-mono-code text-xs text-red-500'>60 minutes</span>",
-        "<strong>Reason:</strong> Cooling down heated chat discussion",
-      ],
+      botReply:
+        "Applies a temporary timeout to a member for the specified <span class='discord-inline-code'>duration</span> so they cannot send messages or join voice.",
     },
     {
       name: "/unmute",
       args: ["target", "reason"],
-      permission: "Moderate Members",
-      previewTitle: "Timeout Lifted",
-      previewLines: [
-        "<strong>Status:</strong> Member can now send messages and join voice again.",
-      ],
+      botReply:
+        "Immediately removes an active timeout from a <span class='discord-inline-code'>target</span> member and restores their chat permissions.",
     },
     {
       name: "/warn",
       args: ["target", "reason"],
-      permission: "Moderate Members",
-      previewTitle: "Formal Warning Issued",
-      previewLines: [
-        "<strong>Notice:</strong> Official warning delivered to member and logged for staff.",
-      ],
+      botReply:
+        "Sends an official warning notice to a <span class='discord-inline-code'>target</span> member and records the <span class='discord-inline-code'>reason</span> for server moderators.",
     },
   ],
   utility: [
     {
       name: "/help",
       args: [],
-      permission: "Public",
-      previewTitle: "Pdl.ai Help Center",
-      previewLines: [
-        "Welcome to the <strong>Pdl.ai</strong> documentation hub.",
-        "Your all-in-one assistant for tech support, music, and server security.",
-      ],
+      botReply:
+        "Opens the interactive help menu inside Discord where you can browse all commands, AI conversation tips, music controls, and security features.",
     },
     {
       name: "/settings",
       args: [],
-      permission: "Administrator",
-      previewTitle: "Server Configuration Overview",
-      previewLines: [
-        "<strong>AI Channels:</strong> <span class='channel-pill'>#general</span>, <span class='channel-pill'>#hardware-help</span>",
-        "<strong>Anti-Scam Shield:</strong> Active • <strong>Sanction:</strong> Timeout Member",
-      ],
+      botReply:
+        "Opens the server configuration panel for administrators to choose authorized AI chat channels, Anti-Scam monitored channels, alert logs, and automatic sanctions.",
     },
     {
       name: "/ping",
       args: [],
-      permission: "Public",
-      previewTitle: "Pong!",
-      previewLines: [
-        "<strong>Round-Trip Latency:</strong> <span class='font-mono-code text-xs text-emerald-400'>24 ms</span>",
-        "<strong>Discord WebSocket:</strong> <span class='font-mono-code text-xs text-emerald-400'>19 ms</span>",
-      ],
+      botReply:
+        "Checks my current response speed by measuring the round-trip message latency and the live Discord WebSocket heartbeat.",
     },
     {
       name: "/invite",
       args: [],
-      permission: "Public",
-      previewTitle: "Invite Pdl.ai",
-      previewLines: [
-        "Use the direct links to add <strong>Pdl.ai</strong> to your server or join our support community.",
-      ],
+      botReply:
+        "Shares direct buttons to invite me to another Discord server or join the official Pdl.ai support server.",
     },
     {
       name: "/feedback",
       args: ["message"],
-      permission: "Public",
-      previewTitle: "Feedback Delivered",
-      previewLines: [
-        "Thank you! Your suggestion has been forwarded to the Pdl.ai team.",
-      ],
+      botReply:
+        "Sends your bug report or feature idea written in <span class='discord-inline-code'>message</span> directly to the development team.",
     },
     {
       name: "/say",
       args: ["message", "title", "channel"],
-      permission: "Manage Messages",
-      previewTitle: "Server Announcement",
-      previewLines: [
-        "<strong>Community Night:</strong> Join us tonight at 21:00 in <span class='channel-pill'>#Calling 96kbps</span>!",
-      ],
+      botReply:
+        "Publishes a clean formatted announcement with your <span class='discord-inline-code'>title</span> and <span class='discord-inline-code'>message</span> in the selected <span class='discord-inline-code'>channel</span>.",
     },
   ],
 };
@@ -353,35 +286,30 @@ function initFluidHeader() {
 }
 
 /**
- * Renders the interactive Command Studio chips and live preview stage.
+ * Renders the Discord Slash Command selector and realistic chat message explanation.
  */
 function renderWorkbench() {
   const chipsContainer = document.getElementById("wb-chips-container");
   const syntaxBar = document.getElementById("wb-syntax-bar");
-  const permPill = document.getElementById("wb-permission-pill");
   const copyBtn = document.getElementById("wb-copy-btn");
   const previewStage = document.getElementById("wb-preview-stage");
 
   const list = WORKBENCH_COMMANDS[activeCategory] || WORKBENCH_COMMANDS.music;
   const selected = list[activeCommandIndex] || list[0];
+  const categoryIcon = CATEGORY_ICONS[activeCategory] || CATEGORY_ICONS.music;
 
   if (chipsContainer) {
     chipsContainer.innerHTML = list
       .map((cmd, idx) => {
         const isActive = idx === activeCommandIndex ? "active" : "";
-        const argsCount = cmd.args.length;
-        const argsLabel = argsCount > 0 ? `${argsCount} arg${argsCount > 1 ? "s" : ""}` : "Instant";
         return `
           <button
             type="button"
             data-cmd-index="${idx}"
-            class="cmd-chip ${isActive} flex items-center justify-between gap-2"
+            class="slash-item ${isActive} flex items-center gap-3"
           >
-            <div class="font-mono-code font-semibold text-sm text-white flex items-center gap-1.5 truncate">
-              <span class="text-red-500">/</span>
-              <span class="truncate">${cmd.name.slice(1)}</span>
-            </div>
-            <span class="text-[10px] font-mono-code text-white/40 shrink-0">${argsLabel}</span>
+            ${categoryIcon}
+            <span class="font-mono-code font-semibold text-sm truncate">${cmd.name}</span>
           </button>
         `;
       })
@@ -393,20 +321,16 @@ function renderWorkbench() {
       const argsHTML = selected.args
         .map(
           (arg) =>
-            `<span class="font-mono-code text-xs px-2 py-0.5 rounded bg-black/50 text-white/65 border border-white/10">${arg}</span>`,
+            `<span class="font-mono-code text-xs px-2 py-0.5 rounded bg-[#1e1f22] text-white">${arg}:</span>`,
         )
         .join("");
 
       syntaxBar.innerHTML = `
-        <span class="font-mono-code font-bold text-sm text-red-500 bg-red-500/15 border border-red-500/30 px-3 py-1 rounded-lg">
+        <span class="font-mono-code font-bold text-sm text-white bg-[#5865f2] px-2.5 py-0.5 rounded">
           ${selected.name}
         </span>
         ${argsHTML}
       `;
-    }
-
-    if (permPill) {
-      permPill.textContent = selected.permission;
     }
 
     if (copyBtn) {
@@ -415,34 +339,33 @@ function renderWorkbench() {
     }
 
     if (previewStage) {
-      const linesHTML = selected.previewLines
-        .map((line) => `<div class="text-xs sm:text-sm text-white/80">${line}</div>`)
-        .join("");
-
       previewStage.innerHTML = `
-        <div class="animate-view space-y-4">
-          <div class="flex items-center gap-2 text-xs text-white/45">
-            <img src="./images/profils/tomiitomii301.webp" alt="Member" class="w-5 h-5 rounded-full object-cover" />
-            <span class="text-white/80 font-semibold">tomiitomii</span>
+        <div class="animate-view space-y-1.5">
+          <!-- Authentic Discord Slash Command Reply Spine -->
+          <div class="discord-reply-spine flex items-center gap-2 text-xs text-[#b5bac1]">
+            <img src="./images/profils/tomiitomii301.webp" alt="Member" class="w-4 h-4 rounded-full object-cover" />
+            <span class="font-semibold text-white">tomiitomii</span>
             <span>used</span>
-            <span class="font-mono-code text-red-500 font-semibold">${selected.name}</span>
+            <span class="font-mono-code font-semibold text-[#5865f2] bg-[#5865f2]/15 px-1.5 py-0.5 rounded">${selected.name}</span>
           </div>
 
-          <div class="flex items-start gap-3.5">
-            <img src="./images/icones/dancing-pdl.gif" alt="Pdl.ai" class="w-10 h-10 rounded-full object-cover shrink-0" />
-            <div class="flex-1 min-w-0 space-y-2">
+          <!-- Realistic Bot Chat Message -->
+          <div class="flex items-start gap-4 pt-1">
+            <img src="./images/icones/dancing-pdl.gif" alt="Pdl.ai" class="w-10 h-10 rounded-full object-cover shrink-0 mt-0.5" />
+            <div class="flex-1 min-w-0">
               <div class="flex items-center gap-2">
-                <span class="font-bold text-sm text-white">Pdl.ai</span>
-                <span class="app-tag">APP</span>
-                <span class="text-[11px] text-white/35">Just now</span>
+                <span class="font-bold text-[15px] text-white hover:underline cursor-pointer">Pdl.ai</span>
+                <span class="app-tag">
+                  <svg class="w-2.5 h-2.5" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M7.4 11.17 4 8.62l1-1.17 2.26 1.7 4.14-4.15 1.14 1.14-5.14 5.03Z" />
+                  </svg>
+                  APP
+                </span>
+                <span class="text-xs text-[#949ba4]">Today at 14:32</span>
               </div>
-
-              <div class="discord-preview-container space-y-2">
-                <div class="font-extrabold text-white text-sm sm:text-base">${selected.previewTitle}</div>
-                <div class="space-y-1.5 border-l-2 border-white/20 pl-3">
-                  ${linesHTML}
-                </div>
-              </div>
+              <p class="text-[15px] text-[#dbdee1] leading-relaxed mt-1">
+                ${selected.botReply}
+              </p>
             </div>
           </div>
         </div>
@@ -495,11 +418,6 @@ async function syncDiscordWidget() {
     badgeEl.textContent = `${count} Online in ${cleanServerName}`;
   }
 
-  const heroStatusEl = document.getElementById("hero-live-status");
-  if (heroStatusEl) {
-    heroStatusEl.textContent = `Online now in ${cleanServerName} with ${count} active members`;
-  }
-
   if (data.instant_invite) {
     const inviteBtn = document.getElementById("widget-invite-btn");
     const footerLink = document.getElementById("footer-support-link");
@@ -520,12 +438,12 @@ async function syncDiscordWidget() {
         return `
           <div class="flex items-center justify-between px-3 py-2 rounded-xl bg-white/[0.03] border border-white/5 text-xs">
             <div class="flex items-center gap-2 text-white/85 font-medium">
-              <svg class="w-3.5 h-3.5 text-red-500" viewBox="0 0 24 24" fill="currentColor">
+              <svg class="w-4 h-4 text-emerald-500" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 3a9 9 0 0 0-9 9v7c0 1.1.9 2 2 2h4v-8H5v-1a7 7 0 0 1 14 0v1h-4v8h4c1.1 0 2-.9 2-2v-7a9 9 0 0 0-9-9Z"/>
               </svg>
               <span>${sanitizeLabel(ch.name)}</span>
             </div>
-            <span class="text-[10px] font-mono-code text-[#23a55a]">Active</span>
+            <span class="text-[10px] font-mono-code text-emerald-500">Active</span>
           </div>
         `;
       })
@@ -551,20 +469,9 @@ async function syncDiscordWidget() {
 }
 
 /**
- * Initializes spotlight hover effect and GSAP entrance motion.
+ * Initializes GSAP entrance motion.
  */
 function initVisualEffects() {
-  const cards = document.querySelectorAll(".spotlight-card");
-  cards.forEach((card) => {
-    card.addEventListener("mousemove", (event) => {
-      const rect = card.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
-      card.style.setProperty("--mouse-x", `${x}px`);
-      card.style.setProperty("--mouse-y", `${y}px`);
-    });
-  });
-
   if (typeof gsap === "undefined") {
     return;
   }
